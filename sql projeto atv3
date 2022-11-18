@@ -1,4 +1,4 @@
-1 primeira questão 
+
 
 CREATE DATABASE Loja;
 
@@ -26,6 +26,12 @@ CREATE TABLE CLIENTE(
 	Fone varchar(24)
 );
 
+
+CREATE TABLE VENDEDOR(
+	VendedorID integer primary key,
+	Nome varchar(40));
+
+
 CREATE TABLE PEDIDO(
 	PedidoID integer primary key,
 	ProdutoID integer,
@@ -37,12 +43,7 @@ CREATE TABLE PEDIDO(
 	CONSTRAINT PedidoVendedorFK FOREIGN KEY (VendedorID) references VENDEDOR (VendedorID)
 );
 
-CREATE TABLE VENDEDOR(
-	VendedorID integer primary key,
-	Nome varchar(40));
- 
- 
- 2 questão 
+
  
 insert into CLIENTE
 values
@@ -85,16 +86,18 @@ values
 (9, 3, 2, 3, 67),
 (10, 1, 2, 3, 89);
 
-3 questão 
+
 select*from VENDEDOR order by Nome ASC
 
-4 questão
+
 select count (Nome) from VENDEDOR
 
-5 questão
+
 select count ('Jose Marcio') from PEDIDO
 
-6 questão 
+select count (ProdutoID) from PEDIDO where VendedorID = 1
 
+8 questão
+select VendedorID from PEDIDO where Quantidade >= 300 
 
-7 questão 
+select PrecoUnitario from PRODUTO  
