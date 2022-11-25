@@ -1,0 +1,50 @@
+CREATE DATABASE Faculdade;
+
+CREATE TABLE aluno(
+	id int primary key,
+	nome varchar(20) not null,
+	curso int,
+	FOREIGN KEY (curso) REFERENCES curso (id));
+
+CREATE TABLE curso(
+	id int primary key,
+	nome char(10) not null	  
+); 
+
+insert into curso values 
+(1, 'JAVA'),
+(2, 'C++'),
+(3, 'C#'),
+(4, 'PHP');
+
+insert into aluno values 
+(1, 'Joao', 2),
+(2, 'Maria', 2),
+(3, 'Pedro', 1),
+(4, 'Ana', 4),
+(5, 'Tiago', null);
+
+select a.nome, a.curso, c.id
+from aluno as a
+inner join curso as c
+on a.id = c.id;
+
+select a.nome, a.curso, c.id
+from aluno as a
+left join curso as c
+on a.id = c.id;
+
+select a.nome, a.curso, c.id
+from aluno as a
+right join curso as c
+on a.id = c.id;
+
+select a.nome, a.curso, c.id
+from aluno as a
+full outer join curso as c
+on a.id = c.id;
+
+select a.nome, a.curso, c.id
+from aluno as a
+cross join curso as c
+where a.id = c.id;
